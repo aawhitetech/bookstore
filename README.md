@@ -1,53 +1,66 @@
-# Bookstore Application 
+# Bookstore Application Repository
+## Introduction
 
-## 1. Project Overview:
+Welcome to the Bookstore Application repository. This project aims to provide a robust and scalable application for managing books. The initial design centers on a normalized model with primary emphasis on data integrity and efficiency.
+### Features
 
-   Objective: Develop a bookstore application based on the J2EE platform with a simple book model.
-   Scope (Iteration 1): User can view a list of books, view individual book details, and basic search functionality.
+    Simple and normalized data model.
+    Support for tracking books, authors, and publishers.
+    Scalable design ready for future enhancements.
 
-## 2. Book Model:
+## Application Overview
 
-   Title: Name of the book.
-   Data type: String
-   Constraints: Not empty, Maximum length (e.g., 255 characters)
+The Bookstore Application revolves around three primary entities: Books, Authors, and Publishers.
+### Entities:
 
-   Author: Writer of the book.
-   Data type: String
-   Constraints: Not empty, Maximum length (e.g., 100 characters)
+    Books: The cornerstone of our application, representing individual books.
+    Authors: Denotes authors of books. Authors can exist in our system without having a book associated.
+    Publishers: Depicts publishers of books. A publisher can also exist without any currently associated book.
 
-   Image: Cover image of the book.
-   Data type: URL or Binary Data (BLOB for databases that support it)
-   Constraints: Valid URL if stored as URL, Valid image format if stored as binary.
+### Relationships:
 
-   ISBN (International Standard Book Number):
-   Data type: String
-   Constraints: Must conform to standard ISBN format (10 or 13 characters).
+    Books to Authors: While each book has a singular author, an author can pen multiple books. The relationship is many-to-one, with the author being optional.
+    Books to Publishers: Every book aligns with a single publisher, but a publisher can produce various books. This is another many-to-one relationship with the publisher being optional.
 
-   Publisher: Publisher of the book.
-   Data type: String
-   Constraints: Not empty, Maximum length (e.g., 100 characters)
+## Database Schema
+### Authors Table:
 
-## 3. Functional Requirements:
+    AuthorID: Unique identifier.
+    AuthorName: The name of the author.
 
-   Book Listing: A page to display a list of all available books.
-   Each book entry should show: Image, Title, Author, and Publisher.
-   Clicking on a book should take the user to the book's detail page.
-   Book Details: A detailed view of the book when selected from the listing.
-   Displays: Image, Title, Author, ISBN, and Publisher.
-   Search Functionality: Allow users to search for a book by Title or Author.
-   Search results should display relevant books.
-   No results feedback should be shown if no matches are found.
+### Publishers Table:
 
-## 4. Non-Functional Requirements:
+    PublisherID: Unique identifier.
+    PublisherName: Publisher's name.
 
-   Performance: The application should be responsive with minimal lag when accessing book details.
-   Scalability: The design should be scalable, allowing for more books to be added in the future.
-   Security: Ensure that the system is secure from common web vulnerabilities, such as SQL injection.
+### Books Table:
 
-## 5. Future Enhancements (For subsequent iterations):
+    BookID: Unique identifier.
+    Title: The title of the book.
+    AuthorID: Foreign key referencing Authors.
+    Image: Path or link to the book's image.
+    ISBN: Unique International Standard Book Number.
+    PublisherID: Foreign key referencing Publishers.
 
-   User account management.
-   Ability for users to add reviews and ratings.
-   Online purchase functionality.
+## Entity Relationship Diagram (ERD)
 
-The next steps, post-requirements gathering, would be to design the database schema based on the requirements, set up the development environment, and then start with the implementation phase.
+For a visual understanding of the relationships between these entities, refer to the ERD available below:
+
+![Entity Relationship Diagram](docs/entity_relationship_diagram.jpeg)
+
+## Getting Started
+
+This section can provide information on how to set up the application, including:
+
+    Setting up the database.
+    Installing required dependencies.
+    Running migrations (if applicable).
+    Starting the application.
+
+For detailed setup instructions, consult the SETUP.md file (if you have one or plan to create one).
+## Contributing
+
+If you're looking to contribute, please check out the CONTRIBUTING.md file for guidelines (again, if you have one or plan to create one).
+## License
+
+This project is licensed under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). For more details, see the [LICENSE](LICENSE) file.
