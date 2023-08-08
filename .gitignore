@@ -24,7 +24,7 @@ hs_err_pid*
 replay_pid*
 
 # Gradle cache files
-!./gradle/wrapper/gradle-wrapper.jar
+!/gradle/wrapper/gradle-wrapper.jar
 .gradle/
 build/
 
