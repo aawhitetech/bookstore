@@ -102,7 +102,7 @@ This section can provide information on how to set up the application, including
 For detailed setup instructions, consult the SETUP.md file (if you have one or plan to create one).
 ## Contributing
 
-If you're looking to contribute, please check out the CONTRIBUTING.md file for guidelines (again, if you have one or plan to create one).
+If you're looking to contribute, please check out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
 ## License
 
 This project is licensed under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). For more details, see the [LICENSE](LICENSE) file.
