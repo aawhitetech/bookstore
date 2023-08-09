@@ -14,45 +14,45 @@ The Bookstore Application revolves around three primary entities: Books, Authors
 
 ## Functional Requirements & User Experience
 ### Books:
-
-    Create a Book:
-        Users can add a new book to the system.
-        They will provide the title, select an author from a list or add a new one, select a publisher from a list or add a new one, upload or link an image, and enter the ISBN.
-    Read/View a Book's Details:
-        Users can view the details of a book, including its title, author, publisher, image, and ISBN.
-        The book's details are displayed in a well-organized and readable format.
-    Update a Book's Details:
-        Users can edit any detail of a book including changing its title, author, publisher, image, and ISBN.
-    Delete a Book:
-        Users can remove a book from the system.
-        Before finalizing the deletion, users are prompted for confirmation.
+- Create a Book:
+    - Users can add a new book to the system.
+  - hey will provide the title, select an author from a list or add a new one, select a publisher from a list or add a new one, upload or link an image, and enter the ISBN.
+- Read/View a Book's Details:
+    - Users can view the details of a book, including its title, author, publisher, image, and ISBN.
+    - The book's details are displayed in a well-organized and readable format.
+- Update a Book's Details:
+    - Users can edit any detail of a book including changing its title, author, publisher, image, and ISBN.
+- Delete a Book:
+    - Users can remove a book from the system.
+    - Before finalizing the deletion, users are prompted for confirmation.
 
 ### Authors:
-
-    Create an Author:
-        Users can add a new author to the system by providing the author's name.
-        This can be done as a standalone task or while adding/editing a book.
-    Read/View an Author's Details:
-        Users can view an author's name and a list of books they've written.
-    Update an Author's Details:
-        Users can edit an author's name.
-    Delete an Author:
-        Users can remove an author from the system. They'll be warned if the author is associated with any books and asked for confirmation.
+- Create an Author:
+    - Users can add a new author to the system by providing the author's name.
+    - This can be done as a standalone task or while adding/editing a book.
+- Read/View an Author's Details:
+    - Users can view an author's name and a list of books they've written.
+- Update an Author's Details:
+    - Users can edit an author's name.
+- Delete an Author:
+    - Users can remove an author from the system. They'll be warned if the author is associated with any books and asked for confirmation.
 
 ### Publishers:
+- Create a Publisher:
+    - Users can add a new publisher by entering the publisher's name.
+    - This can be done as a standalone task or while adding/editing a book.
+- Read/View a Publisher's Details:
+    - Users can view the publisher's name and a list of books they've published.
+- Update a Publisher's Details:
+    - Users can edit the publisher's name.
+- Delete a Publisher:
+    - Users can remove a publisher from the system. If the publisher is associated with any books, users will be warned and asked for confirmation.
 
-    Create a Publisher:
-        Users can add a new publisher by entering the publisher's name.
-        This can be done as a standalone task or while adding/editing a book.
-    Read/View a Publisher's Details:
-        Users can view the publisher's name and a list of books they've published.
-    Update a Publisher's Details:
-        Users can edit the publisher's name.
-    Delete a Publisher:
-        Users can remove a publisher from the system. If the publisher is associated with any books, users will be warned and asked for confirmation.
+## Solution Architecture
+
+![Solution Architecture](docs/solution_architecture.png)
 
 ## Data Models
-
 ### Entities:
 
     Books: The cornerstone of our application, representing individual books.
@@ -84,11 +84,11 @@ The Bookstore Application revolves around three primary entities: Books, Authors
     ISBN: Unique International Standard Book Number.
     PublisherID: Foreign key referencing Publishers.
 
-## Entity Relationship Diagram (ERD)
+### Database Schema Diagram
 
-For a visual understanding of the relationships between these entities, refer to the ERD available below:
+For a visual understanding of the relationships between these entities, refer to the Database Schema Diagram available below:
 
-![Entity Relationship Diagram](docs/entity_relationship_diagram.jpeg)
+![Database Schema Diagram](docs/database_schema_diagram.png)
 
 ## Getting Started
 
