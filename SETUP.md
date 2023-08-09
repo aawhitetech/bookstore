@@ -7,7 +7,15 @@ Welcome to the Bookstore setup guide. This document will guide you through the p
     Git
 
 ## Steps to Setup
-### 1. Clone the Repository
+
+Follow the steps below to set up your development environment. If you run into any issues, feel free to ask on the mailing list.
+
+### Database Setup
+To setup a local MSSQL database, please follow the instructions in the [SETUP_DB.md](./docs/SETUP_DB.md) file.
+
+### Application Setup
+
+#### 1. Clone the Repository
 
 `git clone https://github.com/aawhitetech/bookstore.git`
 
@@ -15,13 +23,13 @@ Navigate to the project directory:
 
 `cd [your-project-directory]`
 
-### 2. Open the Project in IntelliJ IDEA
+#### 2. Open the Project in IntelliJ IDEA
 
 Upon opening the project, IntelliJ will automatically detect it as a Gradle project and begin the import process. If prompted to use the Gradle wrapper (which is recommended), approve it.
-### 3. Configure the Java SDK
+#### 3. Configure the Java SDK
 
 IntelliJ IDEA usually comes with an embedded JDK. If the project requires a specific Java version and it's not already available on your system, IntelliJ will prompt you to download it. Follow the prompts to set up the required version of the Java SDK.
-### 4. Build, Test, and Run
+#### 4. Build, Test, and Run
 
 You can manage the entire lifecycle of the application from within IntelliJ IDEA:
 
