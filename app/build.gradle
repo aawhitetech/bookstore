@@ -12,6 +12,7 @@ buildscript {
     }
 
     dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.7.0'
         classpath "org.liquibase:liquibase-gradle-plugin:2.0.4"
     }
 }
@@ -19,6 +20,8 @@ buildscript {
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'war'
+    id "com.bmuschko.tomcat" version "2.7.0"
     id 'org.liquibase.gradle' version '2.0.4'
 }
 
@@ -28,6 +31,14 @@ repositories {
 }
 
 dependencies {
+    def tomcatVersion = '9.0.73'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M6",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+
+    // implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1' // 'providedCompile' means it won't be included in the WAR, since the container provides it
+
     liquibaseRuntime 'org.liquibase:liquibase-core:4.8.0' // Liquibase core dependency
     liquibaseRuntime 'com.microsoft.sqlserver:mssql-jdbc:9.4.1.jre11' // Liquibase Microsoft Sql Server dependency
 
@@ -49,6 +60,12 @@ application {
 tasks.named('test') {
     // Use TestNG for unit tests.
     useTestNG()
+}
+
+apply plugin: 'com.bmuschko.tomcat'
+tomcat {
+    httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+    ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
 }
 
 apply plugin: "org.liquibase.gradle"
