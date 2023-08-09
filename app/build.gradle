@@ -6,9 +6,20 @@
  * User Manual available at https://docs.gradle.org/7.1.1/userguide/building_java_projects.html
  */
 
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath "org.liquibase:liquibase-gradle-plugin:2.0.4"
+    }
+}
+
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'org.liquibase.gradle' version '2.0.4'
 }
 
 repositories {
@@ -17,10 +28,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'jakarta.platform:jakarta.jakartaee-api:8.0.0'
+    liquibaseRuntime 'org.liquibase:liquibase-core:4.8.0' // Liquibase core dependency
+    liquibaseRuntime 'com.microsoft.sqlserver:mssql-jdbc:9.4.1.jre11' // Liquibase Microsoft Sql Server dependency
 
     // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:7.4.0'
+    testImplementation 'org.testng:testng:7.7.0'
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1-jre'
@@ -37,4 +49,16 @@ application {
 tasks.named('test') {
     // Use TestNG for unit tests.
     useTestNG()
+}
+
+apply plugin: "org.liquibase.gradle"
+liquibase {
+    activities {
+        main(({
+            changeLogFile 'app/src/main/resources/db/changelog/db.changelog-master.xml'
+            url 'jdbc:sqlserver://localhost;databaseName=bookstore'
+            username 'sa'
+            password 'StrongPassword123'
+        }))
+    }
 }
